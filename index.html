@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>衛生福利部食品藥物管理署新聞</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="衛生福利部食品藥物管理署新聞">
+<meta property="og:url" content="https://hamilton25x.github.io/news">
+<meta property="og:image" content="https://hamilton25x.github.io/news">
+<meta property="article:author" content="https://hamilton25x.github.io/resume">
+  
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+
+  
+<div id="app">
+  <header class="jumbotron">
+    <div class="container">
+      <h1>衛生福利部食品藥物管理署新聞</h1>
+      <hr/>
+      <div class="button"><a class="btn btn-dark bg-dark" href="#news">詳細資訊</a></div>
+    </div>
+  </header>
+  <section id="news">
+    <div class="container">
+      <h2>新聞內容</h2>
+      <h4 v-if="news.length==0">載入中...</h4>
+      <label>詳細新聞
+        <input type="checkbox" v-model="detail"/>
+      </label>
+      <div id="itemlist" v-bind:class="detail?{block:isblock}:{grid:isgrid}">
+        <div class="item" v-for="(new1,index) in news">
+          <h4 :class="{red:isred}">({{index+1}}){{new1.發布日期}}</h4>
+          <h5>{{new1.標題}}</h5>
+          <div v-if="detail">
+            <hr/>
+            <p v-html="new1.內容"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <p>Copyright © 2019 Hengyi</p>
+  </footer>
+</div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.6/vue.min.js'></script>
+
+  
+
+    <script  src="js/index.js"></script>
+
+
+
+
+</body>
+
+</html>

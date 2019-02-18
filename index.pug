@@ -1,0 +1,22 @@
+#app
+  header.jumbotron
+    .container
+      h1 衛生福利部食品藥物管理署新聞
+      hr
+      .button
+        a(href="#news").btn.btn-dark.bg-dark 詳細資訊
+  section#news
+    .container
+      h2 新聞內容
+      h4(v-if="news.length==0") 載入中...
+      label 詳細新聞
+        input(type="checkbox" v-model="detail")
+      #itemlist(v-bind:class="detail?{block:isblock}:{grid:isgrid}")
+        .item(v-for="(new1,index) in news")
+          h4(:class="{red:isred}") ({{index+1}}){{new1.發布日期}}
+          h5 {{new1.標題}}
+          div(v-if="detail")
+            hr
+            p(v-html="new1.內容")
+  footer
+    p Copyright © 2019 Hengyi
